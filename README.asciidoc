@@ -1,0 +1,5 @@
+Network info
+============
+
+Simple application that shows network interfaces based on libnl and gfxprim
+widgets.
