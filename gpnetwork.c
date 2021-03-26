@@ -148,7 +148,7 @@ static void rem_iface_info(struct iface_info *info)
 
 	int idx = gp_widget_tabs_tab_by_child(iface_tabs, info->layout);
 	if (idx > 0)
-		gp_widget_tabs_del(iface_tabs, idx);
+		gp_widget_tabs_tab_del(iface_tabs, idx);
 
 	gp_dlist_rem(&iface_list, &info->list_head);
 
@@ -232,7 +232,7 @@ static void parse_newlink(struct nlmsghdr *nlh)
 		if (!info)
 			return;
 
-		gp_widget_tabs_append(iface_tabs, if_name, info->layout);
+		gp_widget_tabs_tab_append(iface_tabs, if_name, info->layout);
 	}
 
 	set_flags(info, ifi->ifi_flags);
@@ -352,7 +352,7 @@ int main(int argc, char *argv[])
 	struct nl_sock *socket = nl_socket_alloc();
 	gp_widget *layout = gp_widget_grid_new(1, 1, 0);
 
-	iface_tabs = gp_widget_tabs_new(0, 0, NULL);
+	iface_tabs = gp_widget_tabs_new(0, 0, NULL, 0);
 
 	gp_widget_grid_put(layout, 0, 0, iface_tabs);
 
