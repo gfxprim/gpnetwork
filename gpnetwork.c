@@ -48,7 +48,7 @@ static struct iface_info *new_iface_info(int index)
 	gp_dlist_push_tail(&iface_list, &new->list_head);
 
 	new->index = index;
-	new->layout = gp_widget_layout_json("gpnetwork-tab.json", &uids);
+	new->layout = gp_app_layout_fragment_load("gpnetwork", "tab", &uids);
 
 	new->link_addr = gp_widget_by_uid(uids, "link_addr", GP_WIDGET_LABEL);
 	new->link_brd = gp_widget_by_uid(uids, "link_brd", GP_WIDGET_LABEL);

@@ -2,6 +2,7 @@ CFLAGS=-W -Wall -Wextra -O2 $(shell gfxprim-config --cflags) $(shell pkg-config 
 LDLIBS=-lgfxprim $(shell gfxprim-config --libs-widgets) $(shell pkg-config --libs libnl-genl-3.0 libnl-route-3.0)
 BIN=gpnetwork
 DEP=$(BIN:=.dep)
+JSON=tab.json
 
 all: $(DEP) $(BIN)
 
@@ -10,6 +11,7 @@ all: $(DEP) $(BIN)
 
 install:
 	install -D $(BIN) -t $(DESTDIR)/usr/bin/
+	install -m 644 -D $(JSON) $(DESTDIR)/etc/gp_apps/$(BIN)/$(JSON)
 
 -include $(DEP)
 
