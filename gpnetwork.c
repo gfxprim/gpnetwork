@@ -39,7 +39,7 @@ static gp_widget *iface_tabs;
 static struct iface_info *new_iface_info(int index)
 {
 	struct iface_info *new;
-	void *uids;
+	gp_htable *uids;
 
 	new = malloc(sizeof(struct iface_info));
 	if (!new)
