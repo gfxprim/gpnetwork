@@ -66,8 +66,8 @@ static struct iface_info *iface_info_by_index(int index)
 {
 	gp_dlist_head *i;
 
-	gp_list_foreach(&iface_list, i) {
-		struct iface_info *info = gp_list_entry(i, struct iface_info, list_head);
+	GP_LIST_FOREACH(&iface_list, i) {
+		struct iface_info *info = GP_LIST_ENTRY(i, struct iface_info, list_head);
 
 		if (info->index == index)
 			return info;
