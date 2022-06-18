@@ -1,55 +1,57 @@
 {
- "version": 1,
- "rows": 3,
- "align": "fill",
- "widgets": [
-  {
-   "type": "frame",
-   "title": "Link status",
-   "halign": "fill",
-   "widget": {
-    "rows": 3,
-    "widgets": [
-     {
-      "cols": 2,
-      "rows": 2,
-      "border": "none",
-      "widgets": [
-       {"type": "label", "tattr": "bold", "text": "link:"},
-       {"type": "label", "tattr": "bold", "text": "brd:"},
-       {"type": "label", "tattr": "mono", "text": "00:00:00:00:00:00", "uid": "link_addr"},
-       {"type": "label", "tattr": "mono", "text": "00:00:00:00:00:00", "uid": "link_brd"}
-      ]
-     },
-     {
-      "cols": 2,
-      "border": "none",
-      "widgets": [
-       {"type": "label", "tattr": "bold", "text": "mtu:"},
-       {"type": "label", "text": "00000", "uid": "mtu"}
-      ]
-     },
-     {"type": "label", "text": "", "uid": "flags"}
-    ]
+ "info": {"version": 1, "license": "GPL-2.1-or-later", "author": "Cyril Hrubis <metan@ucw.cz>"},
+ "layout": {
+  "rows": 3,
+  "align": "fill",
+  "widgets": [
+   {
+    "type": "frame",
+    "title": "Link status",
+    "halign": "fill",
+     "widget": {
+     "rows": 3,
+     "widgets": [
+      {
+       "cols": 2,
+       "rows": 2,
+       "border": "none",
+       "widgets": [
+        {"type": "label", "tattr": "bold", "text": "link:"},
+        {"type": "label", "tattr": "bold", "text": "brd:"},
+        {"type": "label", "tattr": "mono", "text": "00:00:00:00:00:00", "uid": "link_addr"},
+        {"type": "label", "tattr": "mono", "text": "00:00:00:00:00:00", "uid": "link_brd"}
+       ]
+      },
+      {
+       "cols": 2,
+       "border": "none",
+       "widgets": [
+        {"type": "label", "tattr": "bold", "text": "mtu:"},
+        {"type": "label", "text": "00000", "uid": "mtu"}
+       ]
+      },
+      {"type": "label", "text": "", "uid": "flags"}
+     ]
+    }
+   },
+   {
+    "type": "frame",
+    "halign": "fill",
+    "title": "IPV4",
+    "widget": {
+     "uid": "ipv4",
+     "rows": 0
+    }
+   },
+   {
+    "type": "frame",
+    "halign": "fill",
+    "title": "IPV6",
+    "widget": {
+     "uid": "ipv6",
+     "rows": 0
+    }
    }
-  },
-  {
-   "type": "frame",
-   "halign": "fill",
-   "title": "IPV4",
-   "widget": {
-    "uid": "ipv4",
-    "rows": 0
-   }
-  },
-  {
-   "type": "frame",
-   "halign": "fill",
-   "title": "IPV6",
-   "widget": {
-    "uid": "ipv6",
-    "rows": 0
-   }
-  }
- ]
+  ]
+ }
 }
