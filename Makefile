@@ -1,4 +1,5 @@
-CFLAGS=-W -Wall -Wextra -O2 $(shell gfxprim-config --cflags) $(shell pkg-config --cflags libnl-genl-3.0) -ggdb
+CFLAGS?=-W -Wall -Wextra -O2 -ggdb
+CFLAGS+=$(shell gfxprim-config --cflags) $(shell pkg-config --cflags libnl-genl-3.0)
 LDLIBS=-lgfxprim $(shell gfxprim-config --libs-widgets) $(shell pkg-config --libs libnl-genl-3.0 libnl-route-3.0)
 BIN=gpnetwork
 DEP=$(BIN:=.dep)
