@@ -338,10 +338,8 @@ static int parse_netlink_msg(struct nl_msg *msg, void *arg)
 	return NL_OK;
 }
 
-static int netlink_callback(struct gp_fd *self, struct pollfd *pfd)
+static int netlink_callback(struct gp_fd *self)
 {
-	(void)pfd;
-
 	nl_recvmsgs_default(self->priv);
 
 	return 0;
@@ -370,7 +368,7 @@ int main(int argc, char *argv[])
 	ret = nl_send_simple(socket, RTM_GETADDR, NLM_F_REQUEST | NLM_F_DUMP, &rt_hdr, sizeof(rt_hdr));
 	nl_recvmsgs_default(socket);
 
-	gp_fds_add(gp_widgets_fds, nl_socket_get_fd(socket), POLLIN, netlink_callback, socket);
+	gp_widget_fds_add( nl_socket_get_fd(socket), POLLIN, netlink_callback, socket);
 
 	if (!layout) {
 		fprintf(stderr, "Failed to load layout!\n");
