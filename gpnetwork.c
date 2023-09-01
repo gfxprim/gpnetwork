@@ -368,7 +368,14 @@ int main(int argc, char *argv[])
 	ret = nl_send_simple(socket, RTM_GETADDR, NLM_F_REQUEST | NLM_F_DUMP, &rt_hdr, sizeof(rt_hdr));
 	nl_recvmsgs_default(socket);
 
-	gp_widget_fds_add( nl_socket_get_fd(socket), POLLIN, netlink_callback, socket);
+	gp_fd netlink_fd = {
+		.fd = nl_socket_get_fd(socket),
+		.events = GP_POLLIN,
+		.event = netlink_callback,
+		.priv = socket,
+	};
+
+	gp_widget_poll_add(&netlink_fd);
 
 	if (!layout) {
 		fprintf(stderr, "Failed to load layout!\n");
