@@ -2,7 +2,7 @@
 
 /*
 
-    Copyright (C) 2007-2021 Cyril Hrubis <metan@ucw.cz>
+    Copyright (C) 2021-2023 Cyril Hrubis <metan@ucw.cz>
 
  */
 
@@ -345,6 +345,18 @@ static int netlink_callback(struct gp_fd *self)
 	return 0;
 }
 
+gp_app_info app_info = {
+	.name = "gpnetwork",
+	.desc = "A network configuration viewer",
+	.version = "1.0",
+	.license = "GPL-2.0-or-later",
+	.url = "http://github.com/gfxprim/gpnetwork",
+	.authors = (gp_app_info_author []) {
+		{.name = "Cyril Hrubis", .email = "metan@ucw.cz", .years = "2021-2023"},
+		{}
+	}
+};
+
 int main(int argc, char *argv[])
 {
 	struct nl_sock *socket = nl_socket_alloc();
@@ -382,7 +394,7 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	gp_widgets_main_loop(layout, "network", NULL, argc, argv);
+	gp_widgets_main_loop(layout, NULL, argc, argv);
 
 	return 0;
 }
