@@ -90,13 +90,13 @@ static int iface_info_ipv4_row_by_addr(struct iface_info *info,
 
 	snprintf(buf + len, sizeof(buf) - len, "/%u", prefixlen);
 
-	for (row = 0; row < info->ipv4->grid->rows; row++) {
+	for (row = 0; row < gp_widget_grid_rows_get(info->ipv4); row++) {
 		gp_widget *label = gp_widget_grid_get(info->ipv4, 0, row);
 
 		if (!label)
 			continue;
 
-		if (!strcmp(label->label->text, buf))
+		if (!strcmp(gp_widget_label_get(label), buf))
 			return row;
 	}
 
