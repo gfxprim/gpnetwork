@@ -3,3 +3,13 @@ Network info
 
 Simple application that shows network interfaces based on libnl and gfxprim
 widgets.
+
+What is implemented so far:
+
+- Application loads the list of network interfaces from kernel over netlink
+- Adds an file descriptor to watch for changes and updates the information
+
+What is on TODO:
+
+- Currently there is no code that would allow to change the network parameters
+- Communication to network manager/kernel wifi stack/dhcp daemon to request connection
