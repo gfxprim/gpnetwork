@@ -387,7 +387,7 @@ int main(int argc, char *argv[])
 		.priv = socket,
 	};
 
-	gp_widget_poll_add(&netlink_fd);
+	gp_app_poll_add(&netlink_fd);
 
 	if (!layout) {
 		fprintf(stderr, "Failed to load layout!\n");
